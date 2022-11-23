@@ -1,0 +1,31 @@
+---
+import { Octokit } from "octokit";
+const { repo } = Astro.props;
+
+const octokit = new Octokit();
+const res = await octokit.rest.repos.get({
+    owner: "matthew-mccall",
+    repo: repo,
+});
+---
+
+<div class="card h-100">
+    <div class="card-body">
+        <h5 class="card-title">{res.data.name}</h5>
+        <span class="badge text-bg-primary">{res.data.language}</span>
+        <p class="card-text">{res.data.description}</p>
+        <a href={res.data.html_url} class="card-link text-decoration-none"
+            ><i class="bi-github"></i>
+        </a>
+        {
+            res.data.homepage && (
+                <a
+                    href={res.data.homepage}
+                    class="card-link text-decoration-none"
+                >
+                    <i class="bi-globe" />
+                </a>
+            )
+        }
+    </div>
+</div>
