@@ -1,89 +1,58 @@
 ---
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-
-import VCenter from "../components/VCenter";
-import HTMLWrapper from "../layouts/HTMLWrapper.astro";
-import SidebarLayout from "../layouts/SidebarLayout";
+import VCenter from "../components/VCenter.astro";
+import SidebarLayout from "../layouts/SidebarLayout.astro";
 import Card from "../components/Card.astro";
+import DynamicSpacing from "../components/DynamicSpacing.astro";
 ---
 
-<HTMLWrapper title="mmccall.dev">
-	<SidebarLayout>
-		<div class="container px-5 pb-5">
-			<div class="vh-100 border-bottom">
-				<VCenter>
-					<h2>Hello, I am</h2>
-					<h1 class="display-1">Matthew McCall,</h1>
-					<p class="lead">
-						I made a game engine and a calculator.
-						<a href="#about" class="text-decoration-none"
-							>Scroll to learn more <i class="bi-arrow-down"></i>
-						</a>
-					</p>
-				</VCenter>
-			</div>
-			<div class="pt-5" id="about">
-				<h2>About</h2>
-				<p>
-					Hi, I'm Matthew. I am a Computer Science student at
-					Rensselear Polytechnic Institute who makes game engines and
-					calculators. I mostly work in C++, but I also work in Java
-					and JavaScript.
+<SidebarLayout page="web">
+	<DynamicSpacing>
+		<div class="vh-100 border-bottom">
+			<VCenter>
+				<h2>Hello, I am</h2>
+				<h1 class="display-1">Matthew McCall,</h1>
+				<p class="lead">
+					I made a game engine and a calculator.
+					<a href="#about" class="text-decoration-none"
+						>Scroll to learn more <i class="bi-arrow-down"></i>
+					</a>
 				</p>
-			</div>
-			<div class="pt-5" id="projects">
-				<h2>Projects</h2>
-				<p>
-					Below are some of my projects. Namely, my game engine and
-					calculator, both written are in C++.
-				</p>
-				<div class="row">
-					<div class="col">
-						<Card repo="silicon" />
-					</div>
-					<div class="col">
-						<Card repo="oasis" />
-					</div>
+			</VCenter>
+		</div>
+		<div class="pt-5" id="about">
+			<h2>About</h2>
+			<p>
+				Hi, I'm Matthew. I am a Computer Science student at Rensselear
+				Polytechnic Institute who makes game engines and calculators. I
+				mostly work in C++, but I also work in Java and JavaScript.
+			</p>
+		</div>
+		<div class="pt-5" id="projects">
+			<h2>Projects</h2>
+			<p>
+				Below are some of my projects. Namely, my game engine and
+				calculator.
+			</p>
+			<div class="row gy-3">
+				<div class="col-md">
+					<Card repo="Silicon" />
 				</div>
-			</div>
-			<div class="pt-5">
-				<h4>Minecraft Server Plugins</h4>
-				<p>
-					Below are plugins I have made for Minecraft Paper Servers.
-					These are written in Java.
-				</p>
-				<div class="row">
-					<div class="col">
-						<Card repo="CoordsDB" />
-					</div>
-					<div class="col">
-						<Card repo="FarmDispensers" />
-					</div>
+				<div class="col-md">
+					<Card repo="Oasis" />
 				</div>
 			</div>
 		</div>
-		<footer>
-			<div class="bg-light border-top text-center py-3">
-				Copyright &copy; Matthew McCall
+		<div class="pt-5">
+			<h4>Minecraft Server Plugins</h4>
+			<p>Below are plugins I have made for Minecraft Paper Servers.</p>
+			<div class="row gy-3">
+				<div class="col">
+					<Card repo="CoordsDB" />
+				</div>
+				<div class="col">
+					<Card repo="FarmDispensers" />
+				</div>
 			</div>
-		</footer>
-	</SidebarLayout>
-</HTMLWrapper>
-
-<style>
-	html,
-	body,
-	div {
-		scroll-behavior: smooth;
-	}
-</style>
-
-<script>
-	import { Offcanvas } from "bootstrap";
-
-	const offcanvasElementList = document.querySelectorAll(".offcanvas");
-	const offcanvasList = [...offcanvasElementList].map(
-		(offcanvasEl) => new Offcanvas(offcanvasEl)
-	);
-</script>
+		</div>
+	</DynamicSpacing>
+</SidebarLayout>

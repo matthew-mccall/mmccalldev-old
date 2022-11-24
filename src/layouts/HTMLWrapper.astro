@@ -1,9 +1,11 @@
 ---
-export interface Props {
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+interface Props {
 	title: string;
 }
-
-const { title } = Astro.props;
+const { title = "mmccall.dev" } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -19,3 +21,20 @@ const { title } = Astro.props;
 		<slot />
 	</body>
 </html>
+
+<style>
+	html,
+	body,
+	div {
+		scroll-behavior: smooth;
+	}
+</style>
+
+<script>
+	import { Offcanvas } from "bootstrap";
+
+	const offcanvasElementList = document.querySelectorAll(".offcanvas");
+	const offcanvasList = [...offcanvasElementList].map(
+		(offcanvasEl) => new Offcanvas(offcanvasEl)
+	);
+</script>

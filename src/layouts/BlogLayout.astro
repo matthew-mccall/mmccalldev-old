@@ -1,0 +1,28 @@
+---
+import DynamicSpacing from "../components/DynamicSpacing.astro";
+import SidebarLayout from "./SidebarLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<SidebarLayout page="blog">
+    <div class="sticky-top bg-light p-3 border-bottom">
+        <nav aria-label="breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="/blog">Blog</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        {frontmatter.title}
+                    </li>
+                </ol>
+            </div>
+        </nav>
+    </div>
+    <DynamicSpacing>
+        <div class="py-5">
+            <slot />
+        </div>
+    </DynamicSpacing>
+</SidebarLayout>

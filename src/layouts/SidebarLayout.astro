@@ -1,0 +1,61 @@
+---
+import Navigation from "../components/Navigation.astro";
+import VCenter from "../components/VCenter.astro";
+import HTMLWrapper from "./HTMLWrapper.astro";
+
+const { page } = Astro.props;
+---
+
+<HTMLWrapper title={`mmccall.dev | ${page}`}>
+    <div class="row g-0 vh-100">
+        <div class="d-none d-md-block col-auto h-100 border-end bg-light px-5">
+            <VCenter>
+                <Navigation active={page} />
+            </VCenter>
+        </div>
+        <div class="col overflow-scroll h-100">
+            <div class="d-flex flex-column min-vh-100">
+                <div class="flex-grow-1">
+                    <slot />
+                </div>
+                <footer>
+                    <div class="bg-light border-top text-center py-5">
+                        Copyright &copy; {new Date().getFullYear()} Matthew McCall
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <div class="row fixed-bottom d-md-none">
+        <div class="col-auto ms-auto">
+            <button
+                class="btn btn-light border m-3"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#sidebar"
+                aria-controls="sidebar"
+            >
+                <i class="bi-list"></i>
+            </button>
+        </div>
+    </div>
+    <div
+        class="offcanvas offcanvas-start"
+        id="sidebar"
+        aria-labelledby="sidebarLabel"
+        data-bs-backdrop="static"
+        tabindex={-1}
+    >
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="sidebarLabel">mmccall.dev</h5>
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <Navigation active={page} />
+        </div>
+    </div>
+</HTMLWrapper>
