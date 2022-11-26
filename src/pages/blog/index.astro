@@ -12,10 +12,11 @@ const allBlogs = await Astro.glob("./*.mdx");
             <p class="lead">
                 A collection of stories about my coding adventures.
             </p>
-            <div class="d-flex flex-wrap">
+            <div class="row g-3">
                 {
                     allBlogs.map((post) => (
-                        <div class="card" style="width: 18rem;">
+                      <div class="col-md-6">
+                        <div class="card">
                             <img
                                 src={post.frontmatter.image}
                                 class="card-img-top"
@@ -32,6 +33,7 @@ const allBlogs = await Astro.glob("./*.mdx");
                                 </a>
                             </div>
                         </div>
+                      </div>
                     ))
                 }
             </div>
