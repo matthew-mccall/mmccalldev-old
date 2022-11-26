@@ -3,6 +3,22 @@ import DynamicSpacing from "../../components/DynamicSpacing.astro";
 import SidebarLayout from "../../layouts/SidebarLayout.astro";
 
 const allBlogs = await Astro.glob("./*.mdx");
+
+allBlogs.sort((a, b): number => {
+    if (a.frontmatter.year > b.frontmatter.year) {
+        return -1;
+    }
+
+    if (a.frontmatter.month > b.frontmatter.month) {
+        return -1;
+    }
+
+    if (a.frontmatter.day > b.frontmatter.day) {
+        return -1;
+    }
+
+    return 0;
+});
 ---
 
 <SidebarLayout page="blog">
@@ -12,28 +28,33 @@ const allBlogs = await Astro.glob("./*.mdx");
             <p class="lead">
                 A collection of stories about my coding adventures.
             </p>
-            <div class="row g-3">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
                 {
                     allBlogs.map((post) => (
-                      <div class="col-md-6">
-                        <div class="card">
-                            <img
-                                src={post.frontmatter.image}
-                                class="card-img-top"
-                            />
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    {post.frontmatter.title}
-                                </h5>
-                                <p class="card-text">
-                                    {post.frontmatter.description}
-                                </p>
-                                <a href={post.url} class="card-link">
-                                    Read more
-                                </a>
+                        <div class="col">
+                            <div class="card h-100">
+                                <img
+                                    src={post.frontmatter.image}
+                                    class="card-img-top"
+                                />
+                                <div class="card-body border-top">
+                                    <h5 class="card-title">
+                                        {post.frontmatter.title}
+                                    </h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        {post.frontmatter.year}-
+                                        {post.frontmatter.month}-
+                                        {post.frontmatter.day}
+                                    </h6>
+                                    <p class="card-text">
+                                        {post.frontmatter.description}
+                                    </p>
+                                    <a href={post.url} class="card-link">
+                                        Read more
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                      </div>
                     ))
                 }
             </div>
