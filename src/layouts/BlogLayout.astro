@@ -5,21 +5,19 @@ const { frontmatter } = Astro.props;
 ---
 
 <SidebarLayout page="blog">
-    <div class="sticky-top p-3 border-bottom" style="background-color: white;">
+    <div class="sticky-top border-bottom" style="background-color: white;">
         <nav aria-label="breadcrumb">
-            <div class="container">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item">
-                        <a href="/blog">Blog</a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                        {frontmatter.title}
-                    </li>
-                </ol>
-            </div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="/blog">Blog</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {frontmatter.title}
+                </li>
+            </ol>
         </nav>
     </div>
-    <div class="container py-5">
+    <div class="py-5">
         <slot />
     </div>
 </SidebarLayout>

@@ -21,40 +21,38 @@ allBlogs.sort((a, b): number => {
 ---
 
 <SidebarLayout page="blog">
-    <div class="container">
-        <div class="py-5">
-            <h1 class="display-1">Blog</h1>
-            <p class="lead">
-                A collection of stories about my coding adventures.
-            </p>
-            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
-                {
-                    allBlogs.map((post) => (
-                        <div class="col">
-                            <div class="card h-100">
-                                <img
-                                    src={post.frontmatter.image}
-                                    class="card-img-top"
-                                />
-                                <div class="card-body border-top">
-                                    <h5 class="card-title">
-                                        {post.frontmatter.title}
-                                    </h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">
-                                        {post.frontmatter.year}-{post.frontmatter.month}-{post.frontmatter.day}
-                                    </h6>
-                                    <p class="card-text">
-                                        {post.frontmatter.description}
-                                    </p>
-                                    <a href={post.url} class="card-link">
-                                        Read more
-                                    </a>
-                                </div>
+    <div class="py-5">
+        <h1 class="display-1">Blog</h1>
+        <p class="lead">
+            A collection of stories about my coding adventures.
+        </p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+            {
+                allBlogs.map((post) => (
+                    <div class="col">
+                        <div class="card h-100">
+                            <img
+                                src={post.frontmatter.image}
+                                class="card-img-top"
+                            />
+                            <div class="card-body border-top">
+                                <h5 class="card-title">
+                                    {post.frontmatter.title}
+                                </h5>
+                                <h6 class="card-subtitle mb-2 text-muted">
+                                    {post.frontmatter.year}-{post.frontmatter.month}-{post.frontmatter.day}
+                                </h6>
+                                <p class="card-text">
+                                    {post.frontmatter.description}
+                                </p>
+                                <a href={post.url} class="card-link">
+                                    Read more
+                                </a>
                             </div>
                         </div>
-                    ))
-                }
-            </div>
+                    </div>
+                ))
+            }
         </div>
     </div>
 </SidebarLayout>

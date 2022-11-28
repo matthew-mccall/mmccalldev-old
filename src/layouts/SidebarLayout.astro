@@ -15,13 +15,15 @@ const { page } = Astro.props;
                 </VCenter>
             </div>
             <div class="col overflow-scroll vh-100">
-                <div class="d-flex flex-column min-vh-100">
-                    <div class="flex-grow-1">
-                        <slot />
+                <div class="container">
+                    <div class="d-flex flex-column min-vh-100">
+                        <div class="flex-grow-1">
+                            <slot />
+                        </div>
+                        <footer class="border-top text-center py-5">
+                            Copyright &copy; {new Date().getFullYear()} Matthew McCall
+                        </footer>
                     </div>
-                    <footer class="border-top text-center py-5">
-                        Copyright &copy; {new Date().getFullYear()} Matthew McCall
-                    </footer>
                 </div>
             </div>
         </div>
