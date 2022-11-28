@@ -7,7 +7,7 @@ const { page } = Astro.props;
 ---
 
 <HTMLWrapper title={`mmccall.dev | ${page}`}>
-    <div class="row g-md-5 mx-md-4 vh-100">
+    <div class="row g-md-4 mx-md-4 vh-100">
         <div class="d-none d-md-block col-auto vh-100">
             <VCenter>
                 <Navigation active={page} />
@@ -57,3 +57,12 @@ const { page } = Astro.props;
         </div>
     </div>
 </HTMLWrapper>
+
+<script>
+	import { Offcanvas } from "bootstrap";
+
+	const offcanvasElementList = document.querySelectorAll(".offcanvas");
+	const offcanvasList = [...offcanvasElementList].map(
+		(offcanvasEl) => new Offcanvas(offcanvasEl)
+	);
+</script>

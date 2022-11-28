@@ -29,12 +29,3 @@ const { title = "mmccall.dev" } = Astro.props;
 		scroll-behavior: smooth;
 	}
 </style>
-
-<script>
-	import { Offcanvas } from "bootstrap";
-
-	const offcanvasElementList = document.querySelectorAll(".offcanvas");
-	const offcanvasList = [...offcanvasElementList].map(
-		(offcanvasEl) => new Offcanvas(offcanvasEl)
-	);
-</script>
