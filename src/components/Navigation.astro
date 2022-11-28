@@ -7,21 +7,18 @@ const { active } = Astro.props;
     <br class="d-none d-md-block" />
     <div class="nav nav-pills flex-column">
         <a
-            class={`nav-link ${active == "web" && "active"}`}
+            class:list={['nav-link', {active: "web" == active}]}
             aria-current="page"
-            href="/">web</a
-        >
+            href="/">web</a>
         <a
-            class={`nav-link ${active == "docs" && "active"}`}
-            href="https://docs.mmccall.dev">docs</a
-        >
-        <a class={`nav-link ${active == "blog" && "active"}`} href="/blog"
-            >blog</a
-        >
+            class="nav-link"
+            href="https://docs.mmccall.dev">docs</a>
+        <a 
+            class:list={['nav-link', {active: "blog" == active}]}
+            href="/blog">blog</a>
         <a
-            class={`nav-link ${active == "resume" && "active"}`}
-            href="https://mmccall.dev/resume">resume</a
-        >
+            class:list={['nav-link', {active: "resume" == active}]}
+            href="/resume">resume</a>
         <br />
         <a class="nav-link" href="https://linkedin.com/in/96d9"
             ><i class="bi-linkedin"></i>

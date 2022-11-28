@@ -1,5 +1,4 @@
 ---
-import DynamicSpacing from "../components/DynamicSpacing.astro";
 import SidebarLayout from "./SidebarLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -20,9 +19,9 @@ const { frontmatter } = Astro.props;
             </div>
         </nav>
     </div>
-    <DynamicSpacing>
+    <div class="container">
         <div class="py-5">
             <slot />
         </div>
-    </DynamicSpacing>
+    </div>
 </SidebarLayout>

@@ -7,21 +7,19 @@ const { page } = Astro.props;
 ---
 
 <HTMLWrapper title={`mmccall.dev | ${page}`}>
-    <div class="row g-0 vh-100">
-        <div class="d-none d-md-block col-auto h-100 border-end bg-light px-5">
+    <div class="row g-md-5 mx-md-4 vh-100">
+        <div class="d-none d-md-block col-auto vh-100">
             <VCenter>
                 <Navigation active={page} />
             </VCenter>
         </div>
-        <div class="col overflow-scroll h-100">
+        <div class="col overflow-scroll vh-100">
             <div class="d-flex flex-column min-vh-100">
                 <div class="flex-grow-1">
                     <slot />
                 </div>
-                <footer>
-                    <div class="bg-light border-top text-center py-5 mt-5">
-                        Copyright &copy; {new Date().getFullYear()} Matthew McCall
-                    </div>
+                <footer class="border-top text-center py-5 mt-5">
+                    Copyright &copy; {new Date().getFullYear()} Matthew McCall
                 </footer>
             </div>
         </div>
