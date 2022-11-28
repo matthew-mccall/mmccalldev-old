@@ -7,25 +7,26 @@ const { page } = Astro.props;
 ---
 
 <HTMLWrapper title={`mmccall.dev | ${page}`}>
-    <div class="row g-md-4 mx-md-4 vh-100">
-        <div class="d-none d-md-block col-auto vh-100">
-            <VCenter>
-                <Navigation active={page} />
-            </VCenter>
-        </div>
-        <div class="col overflow-scroll vh-100">
-            <div class="d-flex flex-column min-vh-100">
-                <div class="flex-grow-1">
-                    <slot />
+    <div class="container-fluid">
+        <div class="row g-md-4 mx-md-4 vh-100">
+            <div class="d-none d-md-block col-auto vh-100">
+                <VCenter>
+                    <Navigation active={page} />
+                </VCenter>
+            </div>
+            <div class="col overflow-scroll vh-100">
+                <div class="d-flex flex-column min-vh-100">
+                    <div class="flex-grow-1">
+                        <slot />
+                    </div>
+                    <footer class="border-top text-center py-5">
+                        Copyright &copy; {new Date().getFullYear()} Matthew McCall
+                    </footer>
                 </div>
-                <footer class="border-top text-center py-5">
-                    Copyright &copy; {new Date().getFullYear()} Matthew McCall
-                </footer>
             </div>
         </div>
     </div>
-    <div class="row fixed-bottom d-md-none">
-        <div class="col-auto ms-auto">
+    <div class="fixed-bottom d-flex flex-row-reverse d-md-none">
             <button
                 class="btn btn-light border m-3"
                 type="button"
@@ -35,7 +36,6 @@ const { page } = Astro.props;
             >
                 <i class="bi-list"></i>
             </button>
-        </div>
     </div>
     <div
         class="offcanvas offcanvas-start"
