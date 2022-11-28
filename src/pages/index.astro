@@ -5,52 +5,54 @@ import GitHubCard from "../components/GitHubCard.astro";
 ---
 
 <SidebarLayout page="web">
-	<div class="container">
-		<div class="row row-cols-1 gy-5">
-			<div class="col vh-100 border-bottom">
-				<VCenter>
-					<h2>Hello, I am</h2>
-					<h1 class="display-1">Matthew McCall,</h1>
-					<p class="lead">
-						I made a game engine and a calculator.
-						<a href="#about" class="text-decoration-none"
-						>Scroll to learn more <i class="bi-arrow-down"></i>
-						</a>
+	<div class="pb-5">
+		<div class="container">
+			<div class="row row-cols-1 gy-4">
+				<div class="col vh-100 border-bottom">
+					<VCenter>
+						<h2>Hello, I am</h2>
+						<h1 class="display-1">Matthew McCall,</h1>
+						<p class="lead">
+							I made a game engine and a calculator.
+							<a href="#about" class="text-decoration-none"
+							>Scroll to learn more <i class="bi-arrow-down"></i>
+							</a>
+						</p>
+					</VCenter>
+				</div>
+				<div class="col" id="about">
+					<h2>About</h2>
+					<p>
+						Hi, I'm Matthew. I am a Computer Science student at Rensselear
+						Polytechnic Institute who makes game engines and calculators. I
+						mostly work in C++, but I also work in Java and JavaScript.
 					</p>
-				</VCenter>
-			</div>
-			<div class="col" id="about">
-				<h2>About</h2>
-				<p>
-					Hi, I'm Matthew. I am a Computer Science student at Rensselear
-					Polytechnic Institute who makes game engines and calculators. I
-					mostly work in C++, but I also work in Java and JavaScript.
-				</p>
-			</div>
-			<div class="col" id="projects">
-				<h2>Projects</h2>
-				<p>
-					Below are some of my projects. Namely, my game engine and
-					calculator.
-				</p>
-				<div class="row gy-3">
-					<div class="col-md">
-						<GitHubCard repo="Silicon" />
-					</div>
-					<div class="col-md">
-						<GitHubCard repo="Oasis" />
+				</div>
+				<div class="col" id="projects">
+					<h2>Projects</h2>
+					<p>
+						Below are some of my projects. Namely, my game engine and
+						calculator.
+					</p>
+					<div class="row gy-3">
+						<div class="col-md">
+							<GitHubCard repo="Silicon" />
+						</div>
+						<div class="col-md">
+							<GitHubCard repo="Oasis" />
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col">
-				<h4>Minecraft Server Plugins</h4>
-				<p>Below are plugins I have made for Minecraft Paper Servers.</p>
-				<div class="row gy-3">
-					<div class="col-md">
-						<GitHubCard repo="CoordsDB" />
-					</div>
-					<div class="col-md">
-						<GitHubCard repo="FarmDispensers" />
+				<div class="col">
+					<h4>Minecraft Server Plugins</h4>
+					<p>Below are plugins I have made for Minecraft Paper Servers.</p>
+					<div class="row gy-3">
+						<div class="col-md">
+							<GitHubCard repo="CoordsDB" />
+						</div>
+						<div class="col-md">
+							<GitHubCard repo="FarmDispensers" />
+						</div>
 					</div>
 				</div>
 			</div>
