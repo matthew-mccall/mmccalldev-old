@@ -1,0 +1,28 @@
+---
+import { unsplash } from "../clients";
+import SidebarLayout from "../layouts/SidebarLayout.astro"
+
+const photos = (await unsplash.users.getPhotos({ username: "__mmccall"})).response?.results!
+
+---
+
+<SidebarLayout page="gallery">
+    <div class="py-5">
+        <h1 class="display-1">Gallery</h1>
+        <p class="lead">A collection of images I have captured and developed.</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+            {
+                photos.map((photo) => (
+                    <div class="col">
+                        <a
+                        href={photo.links.html}
+                        class="card-link text-decoration-none"
+                        >
+                            <img src={photo.urls.small} class="img-fluid" />
+                            </a>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</SidebarLayout>
