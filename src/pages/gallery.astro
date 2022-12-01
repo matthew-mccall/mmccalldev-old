@@ -10,7 +10,7 @@ const photos = (await unsplash.users.getPhotos({ username: "__mmccall"})).respon
     <div class="py-5">
         <h1 class="display-1">Gallery</h1>
         <p class="lead">A collection of images I have captured and developed.</p>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3" data-masonry='{"percentPosition": true }'>
             {
                 photos.map((photo) => (
                     <div class="col">
@@ -26,3 +26,5 @@ const photos = (await unsplash.users.getPhotos({ username: "__mmccall"})).respon
         </div>
     </div>
 </SidebarLayout>
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js" />
