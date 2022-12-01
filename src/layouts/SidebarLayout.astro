@@ -7,55 +7,62 @@ const { page } = Astro.props;
 ---
 
 <HTMLWrapper title={`mmccall.dev | ${page}`}>
-    <div class="container-fluid">
-        <div class="row g-md-4 mx-md-4 vh-100">
-            <div class="d-none d-md-block col-auto vh-100">
-                <VCenter>
-                    <Navigation active={page} />
-                </VCenter>
-            </div>
-            <div class="col overflow-scroll vh-100">
-                <div class="container">
-                    <div class="d-flex flex-column min-vh-100">
-                        <div class="flex-grow-1">
-                            <slot />
+    <div class="d-print-none">
+        <div class="container-fluid">
+            <div class="row g-md-4 mx-md-4 vh-100">
+                <div class="d-none d-md-block col-auto vh-100">
+                    <VCenter>
+                        <Navigation active={page} />
+                    </VCenter>
+                </div>
+                <div class="col overflow-scroll vh-100">
+                    <div class="container">
+                        <div class="d-flex flex-column min-vh-100">
+                            <div class="flex-grow-1">
+                                <slot />
+                            </div>
+                            <footer class="border-top text-center py-5">
+                                Copyright &copy; {new Date().getFullYear()} Matthew McCall
+                            </footer>
                         </div>
-                        <footer class="border-top text-center py-5">
-                            Copyright &copy; {new Date().getFullYear()} Matthew McCall
-                        </footer>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="fixed-bottom d-flex flex-row-reverse d-md-none">
-            <button
-                class="btn btn-light border m-3"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#sidebar"
-                aria-controls="sidebar"
-            >
-                <i class="bi-list"></i>
-            </button>
-    </div>
-    <div
-        class="offcanvas offcanvas-start"
-        id="sidebar"
-        aria-labelledby="sidebarLabel"
-        data-bs-backdrop="static"
-        tabindex={-1}
-    >
-        <div class="offcanvas-header border-bottom">
-            <h5 class="offcanvas-title" id="sidebarLabel">mmccall.dev</h5>
-            <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
+        <div class="fixed-bottom d-flex flex-row-reverse d-md-none">
+                <button
+                    class="btn btn-light border m-3"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebar"
+                    aria-controls="sidebar"
+                >
+                    <i class="bi-list"></i>
+                </button>
         </div>
-        <div class="offcanvas-body">
-            <Navigation active={page} />
+        <div
+            class="offcanvas offcanvas-start"
+            id="sidebar"
+            aria-labelledby="sidebarLabel"
+            data-bs-backdrop="static"
+            tabindex={-1}
+        >
+            <div class="offcanvas-header border-bottom">
+                <h5 class="offcanvas-title" id="sidebarLabel">mmccall.dev</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <Navigation active={page} />
+            </div>
+        </div>
+    </div>
+    <div class="d-none d-print-block">
+        <div class="container">
+            <slot />
         </div>
     </div>
 </HTMLWrapper>
